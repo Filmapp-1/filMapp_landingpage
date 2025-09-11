@@ -104,38 +104,48 @@ body {
     align-items: center;
     padding: 20px;
     background-color: #0d0d0d;
-    margin-bottom: 20px;
+    gap: 15px; /* spazio verticale tra menu e social */
   }
+
+  /* Menu */
   .mobile-menu .menu {
     display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
+    gap: 20px; /* spazio tra i link */
+    flex-wrap: wrap; /* se serve va a capo */
     justify-content: center;
+    width: 100%; /* occupa tutta la larghezza */
   }
+  .mobile-menu .menu a {
+    white-space: nowrap; /* evita che i link si rompano */
+    font-size: 1.2em;
+  }
+
+  /* Social icons */
   .mobile-menu .social-icons {
     display: flex;
     gap: 15px;
     justify-content: center;
+    flex-wrap: wrap; /* se ci sono troppi icon, vanno a capo */
   }
   .mobile-menu .social-icons a {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
     color: #000;
     transition: transform 0.2s;
   }
   .mobile-menu .social-icons a:hover { transform: scale(1.1); }
-  
-  /* Nascondi le icone dentro la hero su mobile */
+
+  /* Nascondi icone dentro la hero */
   .hero .menu, .hero .social-icons {
     display: none;
   }
 }
+
 
 .mobile-menu .menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
 .mobile-menu .social-icons { margin-left: 0; gap: 10px; justify-content: center; }
