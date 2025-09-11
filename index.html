@@ -93,13 +93,50 @@ body {
 .social-icons a:hover { transform: scale(1.1); background-color: #f1f1f1; }
 .social-icons svg { width: 16px; height: 16px; fill: #000; }
 
-/* Mobile menu fuori dal rettangolo viola */
-.mobile-menu { 
-  display: none; 
-  text-align: center; 
-  padding: 20px; 
-  background-color: #0d0d0d; 
+/* Nascondi mobile-menu di default */
+.mobile-menu { display: none; }
+
+/* Mostra mobile-menu solo su max-width 768px */
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #0d0d0d;
+    margin-bottom: 20px;
+  }
+  .mobile-menu .menu {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .mobile-menu .social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  .mobile-menu .social-icons a {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    transition: transform 0.2s;
+  }
+  .mobile-menu .social-icons a:hover { transform: scale(1.1); }
+  
+  /* Nascondi le icone dentro la hero su mobile */
+  .hero .menu, .hero .social-icons {
+    display: none;
+  }
 }
+
 .mobile-menu .menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
 .mobile-menu .social-icons { margin-left: 0; gap: 10px; justify-content: center; }
 
@@ -235,7 +272,7 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
 </head>
 <body>
 
-<!-- Mobile Menu -->
+<!-- Menu e social per mobile -->
 <div class="mobile-menu">
   <div class="menu">
     <a href="#">Signup</a>
