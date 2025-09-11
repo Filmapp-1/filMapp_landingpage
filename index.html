@@ -93,6 +93,11 @@ body {
 .social-icons a:hover { transform: scale(1.1); background-color: #f1f1f1; }
 .social-icons svg { width: 16px; height: 16px; fill: #000; }
 
+/* Mobile menu fuori dal rettangolo viola */
+.mobile-menu { display: none; text-align: center; padding: 20px; background-color: #0d0d0d; }
+.mobile-menu .menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+.mobile-menu .social-icons { margin-left: 0; gap: 10px; justify-content: center; }
+
 /* Sezione testo e bottone centrati */
 .hero-right {
   flex: 1;
@@ -105,7 +110,7 @@ body {
   position: relative;
   top: 30px;
   padding-right: 30px;
-  padding-bottom: 30px; /* aggiunto */
+  padding-bottom: 30px;
 }
 .hero-right h1 { font-size: 2.5em; margin-bottom: 20px; }
 .hero-right .cta {
@@ -305,11 +310,9 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
 
   .feature-box { max-width: 90%; margin-bottom: 20px; }
   .mockup { max-width: 90%; margin-bottom: 40px; }
-
-  /* Hero-left immagine esce dal rettangolo viola */
-  .hero-left img { transform: translateX(-20%) translateY(0); max-width: 120%; }
 }
 
+/* Animazioni per laptop e feature-box */
 .feature-box.visible, .mockup.visible, .laptop-box.visible {
   opacity: 1;
   transform: translateY(0);
