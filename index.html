@@ -105,6 +105,7 @@ body {
   position: relative;
   top: 30px;
   padding-right: 30px;
+  padding-bottom: 30px; /* aggiunto */
 }
 .hero-right h1 { font-size: 2.5em; margin-bottom: 20px; }
 .hero-right .cta {
@@ -125,7 +126,7 @@ body {
 /* QR + Store */
 .downloads { display: flex; flex-direction: row; align-items: center; gap: 30px; }
 .downloads .qr { height: 120px; object-fit: contain; }
-.store-buttons { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.store-buttons { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; padding-bottom: 15px; /* aggiunto */}
 .store-buttons img { height: 50px; object-fit: contain; }
 
 /* Sezione Logo Banner */
@@ -329,6 +330,24 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
   .image-wrapper p { font-size: 1.3em; margin-bottom: 20px; }
 }
 
+/* --- FIX RESPONSIVE HERO MOBILE --- */
+@media (max-width: 768px) {
+  .hero-left img {
+    transform: none;
+    max-width: 100%;
+  }
+  .menu {
+    position: static;
+    transform: none;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .social-icons {
+    margin-left: 0;
+  }
+}
 /* --- Ingrandisci solo mockup2 --- */
 .feature-section:nth-of-type(1) .feature-right {
   flex: 2; /* aumenta lo spazio della colonna immagine */
