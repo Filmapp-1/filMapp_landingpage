@@ -126,7 +126,7 @@ body {
 /* QR + Store */
 .downloads { display: flex; flex-direction: row; align-items: center; gap: 30px; }
 .downloads .qr { height: 120px; object-fit: contain; }
-.store-buttons { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; padding-bottom: 15px; /* aggiunto */}
+.store-buttons { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; padding-bottom: 15px; }
 .store-buttons img { height: 50px; object-fit: contain; }
 
 /* Sezione Logo Banner */
@@ -305,84 +305,15 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
 
   .feature-box { max-width: 90%; margin-bottom: 20px; }
   .mockup { max-width: 90%; margin-bottom: 40px; }
+
+  /* Hero-left immagine esce dal rettangolo viola */
+  .hero-left img { transform: translateX(-20%) translateY(0); max-width: 120%; }
 }
 
-/* Animazioni per laptop e feature-box */
 .feature-box.visible, .mockup.visible, .laptop-box.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Responsive Hero e Laptop */
-@media (max-width: 992px) {
-  .hero { flex-direction: column; padding: 30px 20px; min-height: auto; }
-  .hero-left img { max-width: 100%; transform: translateX(0) translateY(0); }
-  .hero-right { top: 0; margin-top: 20px; }
-  .menu { flex-direction: row; top: -20px; left: 50%; transform: translateX(-50%); gap: 10px; font-size: 1em; justify-content: center; }
-}
-@media (max-width: 768px) {
-  .downloads { flex-direction: column; align-items: center; gap: 15px; }
-  .store-buttons { flex-direction: row; gap: 15px; align-items: center; }
-  .store-buttons img { height: 45px; }
-  .downloads .qr { height: 100px; }
-  .laptop-box { padding: 30px 20px; min-height: auto; }
-  .image-wrapper img { max-width: 100%; }
-  .image-wrapper p { font-size: 1.3em; margin-bottom: 20px; }
-}
-
-/* --- FIX RESPONSIVE HERO MOBILE --- */
-@media (max-width: 768px) {
-  .hero-left img {
-    transform: none;
-    max-width: 100%;
-  }
-  .menu {
-    position: static;
-    transform: none;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-  .social-icons {
-    margin-left: 0;
-  }
-}
-/* --- Ingrandisci solo mockup2 --- */
-.feature-section:nth-of-type(1) .feature-right {
-  flex: 2; /* aumenta lo spazio della colonna immagine */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.feature-section:nth-of-type(1) .mockup {
-  width: 100%;
-  max-width: 700px; /* dimensione massima dell'immagine */
-  margin: 0 auto;
-  height: auto;
-}
-
-.feature-section:nth-of-type(1) .rect-bg {
-  width: 90%;
-  max-width: 720px; /* allarga il rettangolo viola dietro */
-  height: auto;
-}
-
-/* --- Mantieni responsività su mobile --- */
-@media (max-width: 768px) {
-  .feature-section:nth-of-type(1) .mockup {
-    max-width: 90%;
-  }
-  .feature-section:nth-of-type(1) .rect-bg {
-    max-width: 95%;
-  }
-  .feature-section:nth-of-type(1) .feature-right {
-    flex: 1;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -429,97 +360,100 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
   <img src="images/logo_banner.png" alt="Logo App">
 </div>
 
-<!-- SEZIONE FEATURE 2 -->
+<!-- Le sezioni feature rimangono invariate, stessa struttura che hai già -->
+<!-- ... -->
+ <!-- SEZIONE FEATURE 2 -->
 <div class="feature-section">
-  <div class="feature-left">
-    <div class="feature-box">
-      <img src="images/icon3.png" alt="Icona 3" style="width:80px; height:80px; margin-bottom:15px;">
-      <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Motore di ricerca verticale: trova fornitori, location, attrezzature, professionisti.</p>
+    <div class="feature-left">
+      <div class="feature-box">
+        <img src="images/icon3.png" alt="Icona 3" style="width:80px; height:80px; margin-bottom:15px;">
+        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Motore di ricerca verticale: trova fornitori, location, attrezzature, professionisti.</p>
+      </div>
+      <div class="feature-box">
+        <img src="images/icon4.png" alt="Icona 4" style="width:80px; height:80px; margin-bottom:15px;">
+        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Visibilità mirata: utenti del settore possono trovarti facilmente.</p>
+      </div>
     </div>
-    <div class="feature-box">
-      <img src="images/icon4.png" alt="Icona 4" style="width:80px; height:80px; margin-bottom:15px;">
-      <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Visibilità mirata: utenti del settore possono trovarti facilmente.</p>
-    </div>
-  </div>
-  <div class="feature-right">
-    <div class="rect-bg"></div>
-    <img class="mockup" src="images/mockup2.png" alt="Mockup App 2">
-  </div>
-</div>
-
-<!-- SEZIONE FEATURE 1 -->
-<div class="feature-section">
-  <div class="feature-left">
-    <div class="rect-bg"></div>
-    <img class="mockup" src="images/mockup1.png" alt="Mockup App">
-  </div>
-  <div class="feature-right">
-    <div class="feature-box">
-      <img src="images/icon1.png" alt="Icona 1" style="width:80px; height:80px; margin-bottom:15px;">
-      <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Geolocalizzazione dei servizi e contatti diretti.</p>
-    </div>
-    <div class="feature-box">
-      <img src="images/icon2.png" alt="Icona 2" style="width:80px; height:80px; margin-bottom:15px;">
-      <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Inclusione gratuita per i primi fornitori selezionati.</p>
+    <div class="feature-right">
+      <div class="rect-bg"></div>
+      <img class="mockup" src="images/mockup2.png" alt="Mockup App 2">
     </div>
   </div>
-</div>
-
-<!-- Sezione Laptop Animata -->
-<div class="laptop-wrapper">
-  <div class="laptop-box">
-    <div class="image-wrapper">
-      <p>Disponibile anche dal Web</p>
-      <img src="images/laptop_mockup.png" alt="Laptop mockup">
+  
+  <!-- SEZIONE FEATURE 1 -->
+  <div class="feature-section">
+    <div class="feature-left">
+      <div class="rect-bg"></div>
+      <img class="mockup" src="images/mockup1.png" alt="Mockup App">
+    </div>
+    <div class="feature-right">
+      <div class="feature-box">
+        <img src="images/icon1.png" alt="Icona 1" style="width:80px; height:80px; margin-bottom:15px;">
+        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Geolocalizzazione dei servizi e contatti diretti.</p>
+      </div>
+      <div class="feature-box">
+        <img src="images/icon2.png" alt="Icona 2" style="width:80px; height:80px; margin-bottom:15px;">
+        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Inclusione gratuita per i primi fornitori selezionati.</p>
+      </div>
     </div>
   </div>
-</div>
-
-<!-- Contatti -->
-<div class="contact-section" id="contacts">
-  <h2>Contatti</h2>
-  <p>Hai domande o vuoi metterti in contatto con noi? Scrivici a:</p>
-  <p><a href="mailto:tuoemail@example.com" style="color:#fff; text-decoration:underline;">tuoemail@example.com</a></p>
-</div>
-
-<!-- FAQ -->
-<div class="faq-section" id="faq">
-  <h2>- FAQ -</h2>
-  <details><summary>Cos'è [Nome App]?</summary><p>È un'app che semplifica la tua vita digitale, offrendoti [breve descrizione funzione principale].</p></details>
-  <details><summary>Quando sarà disponibile?</summary><p>La beta sarà lanciata nei prossimi mesi. Registrati per ricevere aggiornamenti.</p></details>
-  <details><summary>È gratuita?</summary><p>Sì, la versione beta è completamente gratuita.</p></details>
-  <details><summary>Per quali dispositivi?</summary><p>Disponibile per Android e iOS. Valuteremo altre piattaforme in futuro.</p></details>
-  <details><summary>Serve creare un account?</summary><p>Sì, l'account ti permette di salvare le tue preferenze e sincronizzare i dati.</p></details>
-  <details><summary>L'app funziona offline?</summary><p>Alcune funzionalità richiedono connessione internet, altre funzionano offline.</p></details>
-  <details><summary>I miei dati sono sicuri?</summary><p>Proteggiamo i tuoi dati con standard di sicurezza elevati e crittografia.</p></details>
-  <details><summary>Come contattare il supporto?</summary><p>Puoi scriverci a [email/supporto] o usare il modulo contatti nel sito.</p></details>
-</div>
-
-<!-- Footer -->
-<footer>
-  <img src="images/logo.png" alt="Logo App" style="width:100px; height:100px; margin-bottom:10px; border-radius:8px; display:block; margin-left:auto; margin-right:auto;">
-  <p style="margin:5px 0;">©2025 xxxxx. All Rights Reserved.</p>
-  <p style="margin:5px 0;">
-    <a href="https://docs.google.com/your_terms_link" target="_blank">Terms of Service</a>
-    <a href="https://docs.google.com/your_privacy_link" target="_blank">Privacy Policy</a>
-  </p>
-</footer>
-
-<!-- Script animazioni -->
-<script>
-const animateElements = document.querySelectorAll('.feature-box, .mockup, .laptop-box');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-animateElements.forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+  
+  <!-- Sezione Laptop Animata -->
+  <div class="laptop-wrapper">
+    <div class="laptop-box">
+      <div class="image-wrapper">
+        <p>Disponibile anche dal Web</p>
+        <img src="images/laptop_mockup.png" alt="Laptop mockup">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Contatti -->
+  <div class="contact-section" id="contacts">
+    <h2>Contatti</h2>
+    <p>Hai domande o vuoi metterti in contatto con noi? Scrivici a:</p>
+    <p><a href="mailto:tuoemail@example.com" style="color:#fff; text-decoration:underline;">tuoemail@example.com</a></p>
+  </div>
+  
+  <!-- FAQ -->
+  <div class="faq-section" id="faq">
+    <h2>- FAQ -</h2>
+    <details><summary>Cos'è [Nome App]?</summary><p>È un'app che semplifica la tua vita digitale, offrendoti [breve descrizione funzione principale].</p></details>
+    <details><summary>Quando sarà disponibile?</summary><p>La beta sarà lanciata nei prossimi mesi. Registrati per ricevere aggiornamenti.</p></details>
+    <details><summary>È gratuita?</summary><p>Sì, la versione beta è completamente gratuita.</p></details>
+    <details><summary>Per quali dispositivi?</summary><p>Disponibile per Android e iOS. Valuteremo altre piattaforme in futuro.</p></details>
+    <details><summary>Serve creare un account?</summary><p>Sì, l'account ti permette di salvare le tue preferenze e sincronizzare i dati.</p></details>
+    <details><summary>L'app funziona offline?</summary><p>Alcune funzionalità richiedono connessione internet, altre funzionano offline.</p></details>
+    <details><summary>I miei dati sono sicuri?</summary><p>Proteggiamo i tuoi dati con standard di sicurezza elevati e crittografia.</p></details>
+    <details><summary>Come contattare il supporto?</summary><p>Puoi scriverci a [email/supporto] o usare il modulo contatti nel sito.</p></details>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <img src="images/logo.png" alt="Logo App" style="width:100px; height:100px; margin-bottom:10px; border-radius:8px; display:block; margin-left:auto; margin-right:auto;">
+    <p style="margin:5px 0;">©2025 xxxxx. All Rights Reserved.</p>
+    <p style="margin:5px 0;">
+      <a href="https://docs.google.com/your_terms_link" target="_blank">Terms of Service</a>
+      <a href="https://docs.google.com/your_privacy_link" target="_blank">Privacy Policy</a>
+    </p>
+  </footer>
+  
+  <!-- Script animazioni -->
+  <script>
+  const animateElements = document.querySelectorAll('.feature-box, .mockup, .laptop-box');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  animateElements.forEach(el => observer.observe(el));
+  </script>
+  
+  </body>
+  </html>
+  
