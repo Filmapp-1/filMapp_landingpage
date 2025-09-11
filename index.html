@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>filMapp</title>
+<link rel="icon" href="images/logo_20.png" type="image/png">
+<style>
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #0d0d0d;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+/* Hero wrapper centrato */
+.hero-wrapper { display: flex; justify-content: center; padding: 80px 20px; }
+
+/* Rettangolo viola principale */
+.hero {
+  background-color: #5E29C7;
+  border-radius: 66px;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 40px;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+/* Sezione immagine */
+.hero-left {
+  flex: 4;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hero-left img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 16px;
+  display: block;
+  transform: translateX(-57px) translateY(40px);
+}
+
+/* Menu sopra immagine con icone social */
+.menu {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-60%) translateY(30px);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 10;
+}
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+.menu a:hover { text-decoration: underline; }
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-left: 40px; /* distanza tra menu e icone */
+}
+.social-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.2s;
+}
+.social-icons a:hover { transform: scale(1.1); background-color: #f1f1f1; }
+.social-icons svg { width: 16px; height: 16px; fill: #000; }
+
+/* Sezione testo e bottone centrati */
+.hero-right {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  top: 30px;
+  padding-right: 30px;
+}
+.hero-right h1 { font-size: 2.5em; margin-bottom: 20px; }
+.hero-right .cta {
+  display: inline-block;
+  background: #fff;
+  color: #5E29C7;
+  font-weight: bold;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  text-align: center;
+  width: fit-content;
+}
+.hero-right .cta:hover { background: #f1f1f1; }
+.hero-right p { margin-bottom: 20px; color: #f1f1f1; line-height: 1.5; }
+
+/* QR + Store */
+.downloads { display: flex; flex-direction: row; align-items: center; gap: 30px; }
+.downloads .qr { height: 120px; object-fit: contain; }
+.store-buttons { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.store-buttons img { height: 50px; object-fit: contain; }
+
+/* Sezione Logo Banner */
+.logo-banner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+.logo-banner img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Sezione Laptop (come Hero) */
+.laptop-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+  box-sizing: border-box;
+}
+
+.laptop-box {
+  background-color: #5E29C7;
+  border-radius: 66px;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  min-height: 400px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+}
+
+.image-wrapper p {
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 2.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Sezione Contatti */
+.contact-section {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+.contact-section h2 { margin-bottom: 20px; color: #fff; }
+.contact-section p { color: #ccc; line-height: 1.5; }
+
+/* FAQ Section */
+.faq-section { max-width: 800px; margin: 60px auto; padding: 20px; }
+.faq-section h2 { text-align: center; margin-bottom: 20px; }
+details {
+  background: #1a1a1a;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+details:hover { background: #222; }
+summary { font-weight: bold; font-size: 1.1em; color: #f1f1f1; outline: none; }
+details p { margin-top: 10px; color: #ccc; line-height: 1.5; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #111;
+  color: #ccc;
+  font-size: 0.9em;
+}
+footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
+
+/* --- FEATURE SECTIONS --- */
+.feature-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+  position: relative;
+}
+
+.feature-left, .feature-right {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature-right .rect-bg, .feature-left .rect-bg {
+  position: absolute;
+  width: 80%;
+  max-width: 320px;
+  height: calc(2*300px + 20px);
+  background: #5E29C7;
+  border-radius: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Box bianchi */
+.feature-box {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.feature-box:hover { transform: scale(1.05); }
+
+/* Mockup */
+.mockup {
+  width: 80%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 16px;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.mockup:hover { transform: scale(1.05); }
+
+/* --- ORDINE ALTERNATO SU MOBILE --- */
+@media (max-width: 768px) {
+  .feature-section { flex-direction: column; }
+  .feature-left, .feature-right { width: 100%; flex-direction: column; }
+
+  .feature-section:nth-child(odd) .feature-left { order: 1; }
+  .feature-section:nth-child(odd) .feature-right { order: 2; }
+  .feature-section:nth-child(even) .feature-left { order: 2; }
+  .feature-section:nth-child(even) .feature-right { order: 1; }
+
+  .feature-box { max-width: 90%; margin-bottom: 20px; }
+  .mockup { max-width: 90%; margin-bottom: 40px; }
+}
+
+/* Animazioni per laptop e feature-box */
+.feature-box.visible, .mockup.visible, .laptop-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Hero e Laptop */
+@media (max-width: 992px) {
+  .hero { flex-direction: column; padding: 30px 20px; min-height: auto; }
+  .hero-left img { max-width: 100%; transform: translateX(0) translateY(0); }
+  .hero-right { top: 0; margin-top: 20px; }
+  .menu { flex-direction: row; top: -20px; left: 50%; transform: translateX(-50%); gap: 10px; font-size: 1em; justify-content: center; }
+}
+@media (max-width: 768px) {
+  .downloads { flex-direction: column; align-items: center; gap: 15px; }
+  .store-buttons { flex-direction: row; gap: 15px; align-items: center; }
+  .store-buttons img { height: 45px; }
+  .downloads .qr { height: 100px; }
+  .laptop-box { padding: 30px 20px; min-height: auto; }
+  .image-wrapper img { max-width: 100%; }
+  .image-wrapper p { font-size: 1.3em; margin-bottom: 20px; }
+}
+
+/* --- Ingrandisci solo mockup2 --- */
+.feature-section:nth-of-type(1) .feature-right {
+  flex: 2; /* aumenta lo spazio della colonna immagine */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.feature-section:nth-of-type(1) .mockup {
+  width: 100%;
+  max-width: 700px; /* dimensione massima dell'immagine */
+  margin: 0 auto;
+  height: auto;
+}
+
+.feature-section:nth-of-type(1) .rect-bg {
+  width: 90%;
+  max-width: 720px; /* allarga il rettangolo viola dietro */
+  height: auto;
+}
+
+/* --- Mantieni responsività su mobile --- */
+@media (max-width: 768px) {
+  .feature-section:nth-of-type(1) .mockup {
+    max-width: 90%;
+  }
+  .feature-section:nth-of-type(1) .rect-bg {
+    max-width: 95%;
+  }
+  .feature-section:nth-of-type(1) .feature-right {
+    flex: 1;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero-wrapper">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="menu">
+        <a href="#">Signup</a>
+        <a href="#contacts">Contacts</a>
+        <a href="#faq">FAQ</a>
+        <div class="social-icons">
+          <a href="#" title="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99h-2.54v-2.89h2.54v-2.2c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34v6.99C18.34 21.13 22 17 22 12z"/></svg>
+          </a>
+          <a href="#" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 1.5c.83 0 1.5.67 1.5 1.5S17.83 6.5 17 6.5 15.5 5.83 15.5 5 16.17 3.5 17 3.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
+          </a>
+          <a href="#" title="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M19.615 3.184C21.403 3.63 22 5.256 22 7.976v8.048c0 2.72-.597 4.346-2.385 4.792-2.347.607-11.23.607-13.576 0C2.597 20.37 2 18.744 2 16.024V7.976c0-2.72.597-4.346 2.385-4.792C6.732 2.577 15.615 2.577 17.962 3.184zM10 15l6-3-6-3v6z"/></svg>
+          </a>
+        </div>
+      </div>
+      <img src="images/LM.png" alt="App preview">
+    </div>
+    <div class="hero-right">
+      <h1>La tua nuova App sta arrivando</h1>
+      <a href="https://forms.gle/INSERISCI_IL_TUO_LINK" target="_blank" class="cta">Iscriviti</a>
+      <p>Semplifica la tua vita con una nuova esperienza digitale.<br>Unisciti alla lista d'attesa per provare la beta in anteprima!</p>
+      <div class="downloads">
+        <img src="images/qrFM.png" alt="QR Code" class="qr">
+        <div class="store-buttons">
+          <img src="images/apple.png" alt="Apple Store">
+          <img src="images/google.png" alt="Google Play">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Logo Banner -->
+<div class="logo-banner">
+  <img src="images/logo_banner.png" alt="Logo App">
+</div>
+
+<!-- SEZIONE FEATURE 2 -->
+<div class="feature-section">
+  <div class="feature-left">
+    <div class="feature-box">
+      <img src="images/icon3.png" alt="Icona 3" style="width:80px; height:80px; margin-bottom:15px;">
+      <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Motore di ricerca verticale: trova fornitori, location, attrezzature, professionisti.</p>
+    </div>
+    <div class="feature-box">
+      <img src="images/icon4.png" alt="Icona 4" style="width:80px; height:80px; margin-bottom:15px;">
+      <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Visibilità mirata: utenti del settore possono trovarti facilmente.</p>
+    </div>
+  </div>
+  <div class="feature-right">
+    <div class="rect-bg"></div>
+    <img class="mockup" src="images/mockup2.png" alt="Mockup App 2">
+  </div>
+</div>
+
+<!-- SEZIONE FEATURE 1 -->
+<div class="feature-section">
+  <div class="feature-left">
+    <div class="rect-bg"></div>
+    <img class="mockup" src="images/mockup1.png" alt="Mockup App">
+  </div>
+  <div class="feature-right">
+    <div class="feature-box">
+      <img src="images/icon1.png" alt="Icona 1" style="width:80px; height:80px; margin-bottom:15px;">
+      <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Geolocalizzazione dei servizi e contatti diretti.</p>
+    </div>
+    <div class="feature-box">
+      <img src="images/icon2.png" alt="Icona 2" style="width:80px; height:80px; margin-bottom:15px;">
+      <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Inclusione gratuita per i primi fornitori selezionati.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Sezione Laptop Animata -->
+<div class="laptop-wrapper">
+  <div class="laptop-box">
+    <div class="image-wrapper">
+      <p>Disponibile anche dal Web</p>
+      <img src="images/laptop_mockup.png" alt="Laptop mockup">
+    </div>
+  </div>
+</div>
+
+<!-- Contatti -->
+<div class="contact-section" id="contacts">
+  <h2>Contatti</h2>
+  <p>Hai domande o vuoi metterti in contatto con noi? Scrivici a:</p>
+  <p><a href="mailto:tuoemail@example.com" style="color:#fff; text-decoration:underline;">tuoemail@example.com</a></p>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section" id="faq">
+  <h2>- FAQ -</h2>
+  <details><summary>Cos'è [Nome App]?</summary><p>È un'app che semplifica la tua vita digitale, offrendoti [breve descrizione funzione principale].</p></details>
+  <details><summary>Quando sarà disponibile?</summary><p>La beta sarà lanciata nei prossimi mesi. Registrati per ricevere aggiornamenti.</p></details>
+  <details><summary>È gratuita?</summary><p>Sì, la versione beta è completamente gratuita.</p></details>
+  <details><summary>Per quali dispositivi?</summary><p>Disponibile per Android e iOS. Valuteremo altre piattaforme in futuro.</p></details>
+  <details><summary>Serve creare un account?</summary><p>Sì, l'account ti permette di salvare le tue preferenze e sincronizzare i dati.</p></details>
+  <details><summary>L'app funziona offline?</summary><p>Alcune funzionalità richiedono connessione internet, altre funzionano offline.</p></details>
+  <details><summary>I miei dati sono sicuri?</summary><p>Proteggiamo i tuoi dati con standard di sicurezza elevati e crittografia.</p></details>
+  <details><summary>Come contattare il supporto?</summary><p>Puoi scriverci a [email/supporto] o usare il modulo contatti nel sito.</p></details>
+</div>
+
+<!-- Footer -->
+<footer>
+  <img src="images/logo.png" alt="Logo App" style="width:100px; height:100px; margin-bottom:10px; border-radius:8px; display:block; margin-left:auto; margin-right:auto;">
+  <p style="margin:5px 0;">©2025 xxxxx. All Rights Reserved.</p>
+  <p style="margin:5px 0;">
+    <a href="https://docs.google.com/your_terms_link" target="_blank">Terms of Service</a>
+    <a href="https://docs.google.com/your_privacy_link" target="_blank">Privacy Policy</a>
+  </p>
+</footer>
+
+<!-- Script animazioni -->
+<script>
+const animateElements = document.querySelectorAll('.feature-box, .mockup, .laptop-box');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+animateElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
