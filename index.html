@@ -124,7 +124,7 @@ body {
   width: fit-content;
 }
 .hero-right .cta:hover { background: #f1f1f1; }
-.hero-right p { margin-bottom: 20px; color: #f1f1f1; line-height: 1.5; }
+.hero-right p { margin-bottom: 20px; color: #f1f1f1; line-height: 1.5; font-size: 1.4em }
 
 /* QR + Store */
 .downloads { display: flex; flex-direction: row; align-items: center; gap: 30px; }
@@ -311,6 +311,17 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
   }
 }
 
+/* Metti questo alla fine del tuo tag <style>, dopo tutte le altre regole */
+  @media (max-width: 768px) {
+  /* selettore più specifico per evitare override */
+  .laptop-wrapper .laptop-box .image-wrapper p {
+    font-size: clamp(18px, 5.5vw, 34px);
+    line-height: 1.05;
+    margin-top: 3vw;
+    text-align: center;
+  }
+}
+
 
 @media (max-width: 768px) {
   /* Evidenzia padding della sezione contatti */
@@ -407,7 +418,9 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
     <div class="hero-right">
       <h1>La tua Mappa sta arrivando!</h1>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGhu-FY6OYYPrtIbDS2nk50p_qC2ISOs2gr3TVV34qHnS3CQ/viewform?usp=header" target="_blank" class="cta">Iscriviti</a>
-      <p>Per navigare nel mondo dell'intrattenimento dal palmo della mano.<br>Unisciti alla lista d'attesa per provare la beta in anteprima!</p>
+      <p>Per navigare nel mondo dell'intrattenimento dal palmo della mano.<br>
+        <span style="display:inline-block; margin-top:20px;">
+        Unisciti alla lista d'attesa per provare la beta in anteprima!</span></p>
       <div class="downloads">
         <img src="images/qrFM.png" alt="QR Code" class="qr">
         <div class="store-buttons">
@@ -428,11 +441,11 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
     <div class="feature-left">
       <div class="feature-box">
         <img src="images/icon3.png" alt="Icona 3" style="width:80px; height:80px; margin-bottom:15px;">
-        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Motore di ricerca verticale: trova fornitori, location, attrezzature, professionisti.</p>
+        <p style="font-size:1.4em; color:#000; line-height:1.5; margin:0;">Motore di ricerca verticale: trova fornitori, location, attrezzature, professionisti.</p>
       </div>
       <div class="feature-box">
-        <img src="images/icon4.png" alt="Icona 4" style="width:80px; height:80px; margin-bottom:15px;">
-        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Visibilità mirata: utenti del settore possono trovarti facilmente.</p>
+        <img src="images/icon2.png" alt="Icona 4" style="width:80px; height:80px; margin-bottom:15px;">
+        <p style="font-size:1.4em; color:#000; line-height:1.5; margin:0;">Visibilità mirata: utenti del settore possono trovarti facilmente.</p>
       </div>
     </div>
     <div class="feature-right">
@@ -450,11 +463,11 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
     <div class="feature-right">
       <div class="feature-box">
         <img src="images/icon1.png" alt="Icona 1" style="width:80px; height:80px; margin-bottom:15px;">
-        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Geolocalizzazione dei servizi e contatti diretti.</p>
+        <p style="font-size:1.4em; color:#000; line-height:1.5; margin:0;">Geolocalizzazione dei servizi e contatti diretti.</p>
       </div>
       <div class="feature-box">
-        <img src="images/icon2.png" alt="Icona 2" style="width:80px; height:80px; margin-bottom:15px;">
-        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Inclusione gratuita per i primi fornitori selezionati.</p>
+        <img src="images/icon4.png" alt="Icona 2" style="width:80px; height:80px; margin-bottom:15px;">
+        <p style="font-size:1.4em; color:#000; line-height:1.5; margin:0;">Inclusione gratuita per i primi fornitori selezionati.</p>
       </div>
     </div>
   </div>
