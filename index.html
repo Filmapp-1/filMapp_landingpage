@@ -102,18 +102,21 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px 0; /* meno padding in basso */
     background-color: #0d0d0d;
-    gap: 15px; /* spazio verticale tra menu e social */
+    gap: 10px; /* spazio verticale tra menu e social */
+    margin-bottom: 20px; /* avvicina al rettangolo viola */
   }
 
   /* Menu */
   .mobile-menu .menu {
     display: flex;
-    gap: 20px; /* spazio tra i link */
-    flex-wrap: wrap; /* se serve va a capo */
     justify-content: center;
+    gap: 25px; /* spazio tra i link */
+    flex-wrap: wrap; /* se serve va a capo */
     width: 100%; /* occupa tutta la larghezza */
+    order: 2; /* mostriamo menu sotto le icone */
+    text-align: center;
   }
   .mobile-menu .menu a {
     white-space: nowrap; /* evita che i link si rompano */
@@ -125,11 +128,11 @@ body {
     display: flex;
     gap: 15px;
     justify-content: center;
-    flex-wrap: wrap; /* se ci sono troppi icon, vanno a capo */
+    order: 1; /* icone sopra il menu */
   }
   .mobile-menu .social-icons a {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     display: flex;
     align-items: center;
