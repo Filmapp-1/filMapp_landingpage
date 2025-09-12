@@ -54,8 +54,8 @@ body {
 /* Menu sopra immagine con icone social desktop */
 .menu {
   position: absolute;
-  top: -20px;
-  left: 50%;
+  top: -10px;
+  left: 62%;
   transform: translateX(-60%) translateY(30px);
   display: flex;
   align-items: center;
@@ -76,7 +76,7 @@ body {
 .social-icons {
   display: flex;
   gap: 10px;
-  margin-left: 40px; /* distanza tra menu e icone */
+  margin-left: 10px; /* distanza tra menu e icone */
 }
 .social-icons a {
   display: flex;
@@ -95,63 +95,6 @@ body {
 
 /* Nascondi mobile-menu di default */
 .mobile-menu { display: none; }
-
-/* Mostra mobile-menu solo su max-width 768px */
-@media (max-width: 768px) {
-  .mobile-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 20px 0; /* meno padding in basso */
-    background-color: #0d0d0d;
-    gap: 10px; /* spazio verticale tra menu e social */
-    margin-bottom: 20px; /* avvicina al rettangolo viola */
-  }
-
-  /* Menu */
-  .mobile-menu .menu {
-    display: flex;
-    justify-content: center;
-    gap: 25px; /* spazio tra i link */
-    flex-wrap: wrap; /* se serve va a capo */
-    width: 100%; /* occupa tutta la larghezza */
-    order: 2; /* mostriamo menu sotto le icone */
-    text-align: center;
-  }
-  .mobile-menu .menu a {
-    white-space: nowrap; /* evita che i link si rompano */
-    font-size: 1.2em;
-  }
-
-  /* Social icons */
-  .mobile-menu .social-icons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    order: 1; /* icone sopra il menu */
-  }
-  .mobile-menu .social-icons a {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    color: #000;
-    transition: transform 0.2s;
-  }
-  .mobile-menu .social-icons a:hover { transform: scale(1.1); }
-
-  /* Nascondi icone dentro la hero */
-  .hero .menu, .hero .social-icons {
-    display: none;
-  }
-}
-
-
-.mobile-menu .menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
-.mobile-menu .social-icons { margin-left: 0; gap: 10px; justify-content: center; }
 
 /* Sezione testo e bottone centrati */
 .hero-right {
@@ -272,15 +215,138 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
   .menu { display: none; }
   .mobile-menu { display: block; }
 }
+
 @media (max-width: 768px) {
-  .downloads { flex-direction: column; align-items: center; gap: 15px; }
-  .store-buttons { flex-direction: row; gap: 15px; align-items: center; }
-  .store-buttons img { height: 45px; }
-  .downloads .qr { height: 100px; }
-  .laptop-box { padding: 30px 20px; min-height: auto; }
-  .image-wrapper img { max-width: 100%; }
-  .image-wrapper p { font-size: 1.3em; margin-bottom: 20px; }
+  /* Menu mobile proporzionato */
+  .mobile-menu .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10vw;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .mobile-menu .menu a {
+    flex: 1;
+    text-align: center;
+    font-size: 1.5em;
+    white-space: nowrap;
+  }
+  .mobile-menu .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+    width: 100%;
+    padding: 3vw 0;
+    padding-bottom: 10vw; /* spazio extra sotto per debug */ 
+  }
+  @media (max-width: 768px) {
+  .mobile-menu .social-icons a {
+    background-color: white; 
+  }
+  .mobile-menu .social-icons a svg {
+    fill: #28CCCB; /* colore dell’icona dentro il cerchio */
 }
+  
+}
+  @media (max-width: 768px) {
+  .logo-banner {
+    padding-top: 10vw;
+    padding-bottom: 0;
+    /* se vuoi lasciare padding laterale */
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Feature box - togli padding verticale */
+  .feature-box {
+    padding-top: 0;
+    padding-bottom: 0;
+    /* se vuoi lasciare padding laterale */
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+.feature-left .rect-bg,
+.feature-right .rect-bg {
+  width: 60%;           /* più stretto su mobile */
+  max-width: 200px;     /* limita la larghezza massima */
+  height: auto;         /* lascia che l'altezza si adatti al contenuto */
+  aspect-ratio: 1/1.5;  /* proporzione simile al desktop */
+  top: 50%;             
+  transform: translateY(-50%);
+}
+/* Desktop: colore normale */
+.feature-left .rect-bg,
+.feature-right .rect-bg {
+  background-color: #5E29C7; /* viola */
+}
+
+/* Mobile: trasparente */
+@media (max-width: 768px) {
+  .feature-left .rect-bg,
+  .feature-right .rect-bg {
+    background-color: #0d0d0d; 
+  }
+}
+
+  /* Laptop wrapper - togli padding verticale */
+  .laptop-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+    /* lascia padding laterale */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Laptop box - riduci padding verticale */
+  .laptop-box  {
+    padding-top: 5vw;   /* o 0 se vuoi eliminare del tutto */
+    padding-bottom: 5vw; /* o 0 */
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* Evidenzia padding della sezione contatti */
+  .contact-section {
+    padding-top: 0vw;   /* o 0 se vuoi eliminare del tutto */
+    padding-bottom: 0vw; /* o 0 */
+  }
+}
+
+
+  /* Hero proporzionato */
+  .hero-wrapper { padding: 5vw 2vw; justify-content: center; }
+  .hero { padding: 5vw; gap: 5vw; }
+  .hero-left img { max-width: 100%; transform: translateX(0) translateY(0); }
+  .hero-right { padding: 0 5vw 5vw 5vw; top: 0; margin-top: 5vw; }
+
+  /* Downloads */
+  .downloads { flex-direction: column; align-items: center; gap: 3vw; }
+  .store-buttons { flex-direction: row; gap: 5vw; align-items: center; }
+  .store-buttons img { height: auto; max-height: 8vw; }
+  .downloads .qr { height: auto; max-height: 15vw; }
+
+  /* Laptop */
+  .laptop-box { padding: 5vw; min-height: auto; }
+
+  /* Image Wrapper */
+  .image-wrapper img { max-width: 100%; height: auto; }
+  .image-wrapper p { font-size: 4vw; margin-bottom: 3vw; }
+}
+
+@media (max-width: 768px) {
+  /* Shift globale di tutto il contenuto mobile di 2% a destra */
+  body {
+    transform: translateX(3%);
+  }
+}
+
 </style>
 </head>
 <body>
@@ -342,99 +408,99 @@ footer a { color: #fff; text-decoration: underline; margin: 0 10px; }
   </div>
 </div>
 
-<!-- Il resto del codice rimane invariato come logo banner, feature sections, laptop, contatti, faq, footer -->
-<!-- Logo Banner -->
+<!-- Feature sections, laptop, contatti, faq, footer rimangono invariati -->
+ <!-- Logo Banner -->
 <div class="logo-banner">
-    <img src="images/logo_banner.png" alt="Logo App">
+  <img src="images/logo_banner.png" alt="Logo App">
+</div>
+
+<!-- Le sezioni feature rimangono invariate, stessa struttura che hai già -->
+<!-- ... -->
+ <!-- SEZIONE FEATURE 2 -->
+<div class="feature-section">
+    <div class="feature-left">
+      <div class="feature-box">
+        <img src="images/icon3.png" alt="Icona 3" style="width:80px; height:80px; margin-bottom:15px;">
+        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Motore di ricerca verticale: trova fornitori, location, attrezzature, professionisti.</p>
+      </div>
+      <div class="feature-box">
+        <img src="images/icon4.png" alt="Icona 4" style="width:80px; height:80px; margin-bottom:15px;">
+        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Visibilità mirata: utenti del settore possono trovarti facilmente.</p>
+      </div>
+    </div>
+    <div class="feature-right">
+      <div class="rect-bg"></div>
+      <img class="mockup" src="images/mockup2.png" alt="Mockup App 2">
+    </div>
   </div>
   
-  <!-- Le sezioni feature rimangono invariate, stessa struttura che hai già -->
-  <!-- ... -->
-   <!-- SEZIONE FEATURE 2 -->
+  <!-- SEZIONE FEATURE 1 -->
   <div class="feature-section">
-      <div class="feature-left">
-        <div class="feature-box">
-          <img src="images/icon3.png" alt="Icona 3" style="width:80px; height:80px; margin-bottom:15px;">
-          <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Motore di ricerca verticale: trova fornitori, location, attrezzature, professionisti.</p>
-        </div>
-        <div class="feature-box">
-          <img src="images/icon4.png" alt="Icona 4" style="width:80px; height:80px; margin-bottom:15px;">
-          <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Visibilità mirata: utenti del settore possono trovarti facilmente.</p>
-        </div>
-      </div>
-      <div class="feature-right">
-        <div class="rect-bg"></div>
-        <img class="mockup" src="images/mockup2.png" alt="Mockup App 2">
-      </div>
+    <div class="feature-left">
+      <div class="rect-bg"></div>
+      <img class="mockup" src="images/mockup1.png" alt="Mockup App">
     </div>
-    
-    <!-- SEZIONE FEATURE 1 -->
-    <div class="feature-section">
-      <div class="feature-left">
-        <div class="rect-bg"></div>
-        <img class="mockup" src="images/mockup1.png" alt="Mockup App">
+    <div class="feature-right">
+      <div class="feature-box">
+        <img src="images/icon1.png" alt="Icona 1" style="width:80px; height:80px; margin-bottom:15px;">
+        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Geolocalizzazione dei servizi e contatti diretti.</p>
       </div>
-      <div class="feature-right">
-        <div class="feature-box">
-          <img src="images/icon1.png" alt="Icona 1" style="width:80px; height:80px; margin-bottom:15px;">
-          <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Geolocalizzazione dei servizi e contatti diretti.</p>
-        </div>
-        <div class="feature-box">
-          <img src="images/icon2.png" alt="Icona 2" style="width:80px; height:80px; margin-bottom:15px;">
-          <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Inclusione gratuita per i primi fornitori selezionati.</p>
-        </div>
+      <div class="feature-box">
+        <img src="images/icon2.png" alt="Icona 2" style="width:80px; height:80px; margin-bottom:15px;">
+        <p style="font-size:1.6em; color:#000; line-height:1.5; margin:0;">Inclusione gratuita per i primi fornitori selezionati.</p>
       </div>
     </div>
-    
-    <!-- Sezione Laptop Animata -->
-    <div class="laptop-wrapper">
-      <div class="laptop-box">
-        <div class="image-wrapper">
-          <p>Disponibile anche dal Web</p>
-          <img src="images/laptop_mockup.png" alt="Laptop mockup">
-        </div>
+  </div>
+  
+  <!-- Sezione Laptop Animata -->
+  <div class="laptop-wrapper">
+    <div class="laptop-box">
+      <div class="image-wrapper">
+        <img src="images/laptop_mockup.png" alt="Laptop mockup">
+        <p>Disponibile anche dal Web</p>
       </div>
     </div>
-    
-    <!-- Contatti -->
-    <div class="contact-section" id="contacts">
-      <h2>Contatti</h2>
-      <p>Hai domande o vuoi metterti in contatto con noi? Scrivici a:</p>
-      <p><a href="mailto:tuoemail@example.com" style="color:#fff; text-decoration:underline;">tuoemail@example.com</a></p>
-    </div>
-    
-    <!-- FAQ -->
-    <div class="faq-section" id="faq">
-      <h2>- FAQ -</h2>
-      <details><summary>Cos'è [Nome App]?</summary><p>È un'app che semplifica la tua vita digitale, offrendoti [breve descrizione funzione principale].</p></details>
-      <details><summary>Quando sarà disponibile?</summary><p>La beta sarà lanciata nei prossimi mesi. Registrati per ricevere aggiornamenti.</p></details>
-      <details><summary>È gratuita?</summary><p>Sì, la versione beta è completamente gratuita.</p></details>
-      <details><summary>Per quali dispositivi?</summary><p>Disponibile per Android e iOS. Valuteremo altre piattaforme in futuro.</p></details>
-      <details><summary>Serve creare un account?</summary><p>Sì, l'account ti permette di salvare le tue preferenze e sincronizzare i dati.</p></details>
-      <details><summary>L'app funziona offline?</summary><p>Alcune funzionalità richiedono connessione internet, altre funzionano offline.</p></details>
-      <details><summary>I miei dati sono sicuri?</summary><p>Proteggiamo i tuoi dati con standard di sicurezza elevati e crittografia.</p></details>
-      <details><summary>Come contattare il supporto?</summary><p>Puoi scriverci a [email/supporto] o usare il modulo contatti nel sito.</p></details>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-      <img src="images/logo.png" alt="Logo App" style="width:100px; height:100px; margin-bottom:10px; border-radius:8px; display:block; margin-left:auto; margin-right:auto;">
-      <p style="margin:5px 0;">©2025 xxxxx. All Rights Reserved.</p>
-      <p style="margin:5px 0;">
-        <a href="https://docs.google.com/your_terms_link" target="_blank">Terms of Service</a>
-        <a href="https://docs.google.com/your_privacy_link" target="_blank">Privacy Policy</a>
-      </p>
-    </footer>
+  </div>
+  
+  <!-- Contatti -->
+  <div class="contact-section" id="contacts">
+    <h2>Contatti</h2>
+    <p>Hai domande o vuoi metterti in contatto con noi? Scrivici a:</p>
+    <p><a href="mailto:tuoemail@example.com" style="color:#fff; text-decoration:underline;">tuoemail@example.com</a></p>
+  </div>
+  
+  <!-- FAQ -->
+  <div class="faq-section" id="faq">
+    <h2>- FAQ -</h2>
+    <details><summary>Cos'è [Nome App]?</summary><p>È un'app che semplifica la tua vita digitale, offrendoti [breve descrizione funzione principale].</p></details>
+    <details><summary>Quando sarà disponibile?</summary><p>La beta sarà lanciata nei prossimi mesi. Registrati per ricevere aggiornamenti.</p></details>
+    <details><summary>È gratuita?</summary><p>Sì, la versione beta è completamente gratuita.</p></details>
+    <details><summary>Per quali dispositivi?</summary><p>Disponibile per Android e iOS. Valuteremo altre piattaforme in futuro.</p></details>
+    <details><summary>Serve creare un account?</summary><p>Sì, l'account ti permette di salvare le tue preferenze e sincronizzare i dati.</p></details>
+    <details><summary>L'app funziona offline?</summary><p>Alcune funzionalità richiedono connessione internet, altre funzionano offline.</p></details>
+    <details><summary>I miei dati sono sicuri?</summary><p>Proteggiamo i tuoi dati con standard di sicurezza elevati e crittografia.</p></details>
+    <details><summary>Come contattare il supporto?</summary><p>Puoi scriverci a [email/supporto] o usare il modulo contatti nel sito.</p></details>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <img src="images/logo.png" alt="Logo App" style="width:80px; height:80px; margin-bottom:10px; border-radius:8px; display:block; margin-left:auto; margin-right:auto;">
+    <p style="margin:5px 0;">©2025 xxxxx. All Rights Reserved.</p>
+    <p style="margin:5px 0;">
+      <a href="https://docs.google.com/your_terms_link" target="_blank">Terms of Service</a>
+      <a href="https://docs.google.com/your_privacy_link" target="_blank">Privacy Policy</a>
+    </p>
+  </footer>
 
 <script>
 const animateElements = document.querySelectorAll('.feature-box, .mockup, .laptop-box');
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
+entries.forEach(entry => {
+  if(entry.isIntersecting){
+    entry.target.classList.add('visible');
+    observer.unobserve(entry.target);
+  }
+});
 }, { threshold: 0.3 });
 animateElements.forEach(el => observer.observe(el));
 </script>
