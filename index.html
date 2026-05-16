@@ -6,6 +6,23 @@
 <title>filMapp</title>
 <link rel="icon" href="images/logo_20.png" type="image/png">
 
+  <!-- Elemento dove apparirà il selettore di Google -->
+<div id="google_translate_element"></div>
+
+<!-- Script di configurazione di Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'it', 
+    includedLanguages: 'en,it', // Specifica quali lingue mostrare nel menu
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//://google.com"></script>
+
+
 <!-- Meta tag Open Graph per anteprima social -->
 <meta property="og:title" content="filMapp">
 <meta property="og:description" content="Il punto di incontro tra creativi e industria del cinema italiano">
